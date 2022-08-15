@@ -8,11 +8,10 @@
 </head>
 <body>
 
-    @unless (count($listings) == 0)        
-        @foreach($listings as $key => $listing) 
-        <h1> <a href="/listing/{{$listing['id']}}">{{ $listing['title'] }}</a></h1>
+    @unless (count($listing) == 0)        
+       
+        <h1>{{ $listing['title'] }}</h1>
         <p>{{ $listing['description'] }}</p>
-        @endforeach
     @else
         <p>Nothing</p>
     @endunless
