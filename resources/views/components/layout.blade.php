@@ -36,7 +36,7 @@
     <main>
         <!-- Search -->
         @include('partials._search')
-        @yield('content')
+        {{ $slot }}
     </main>
     
     @include('partials._footer')

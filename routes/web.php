@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Listing;
+use App\Http\Controllers\ListingController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +16,7 @@ use App\Models\Listing;
 |
 */
 
-Route::get('/', function () {
-    return view('listings', [
-        'listings' => Listing::all(),
-    ]);
-});
+Route::get('/', [ListingController::class, 'index']);
 
 //Single Listing 
-Route::get('/listing/{listing}', function(Listing $listing){
-    return view('listing', [
-        'listing' => $listing,
-    ]);
-})->where('id', '[0-9]+');
+Route::get('/listing/{listing}', [ListingController::class, 'show'])->where('id', '[0-9]+');

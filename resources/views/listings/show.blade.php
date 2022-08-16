@@ -1,6 +1,4 @@
-@extends('layout')
-
-@section('content')
+<x-layout>
 
     @unless (empty($listing))   
 
@@ -58,4 +56,4 @@
         <p>Nothing</p>
     @endunless
     
-@endsection
+</x-layout>
