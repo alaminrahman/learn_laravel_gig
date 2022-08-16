@@ -18,5 +18,7 @@ use App\Http\Controllers\ListingController;
 
 Route::get('/', [ListingController::class, 'index']);
 
+Route::get('/listings/create', [ListingController::class, 'create']);
+Route::post('/listings', [ListingController::class, 'store']);
 //Single Listing 
-Route::get('/listing/{listing}', [ListingController::class, 'show'])->where('id', '[0-9]+');
+Route::get('/listings/{listing}', [ListingController::class, 'show'])->where('id', '[0-9]+');

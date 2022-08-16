@@ -12,6 +12,7 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
     />
+    <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -36,6 +37,7 @@
     <main>
         <!-- Search -->
         @include('partials._search')
+        
         {{ $slot }}
     </main>
     
