@@ -4,7 +4,7 @@
     <div class="flex">
         <img
             class="hidden w-48 mr-6 md:block"
-            src="{{ asset('images/acme.png')}}"
+            src="{{ $listing->logo ? 'storage/'.$listing->logo : asset('images/acme.png')}}"
             alt=""
             width="70"
         />

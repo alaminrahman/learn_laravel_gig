@@ -10,6 +10,8 @@
                     
                 
             @endforeach
+
+            {{ $listings->links() }}
         @else
             <p>Nothing</p>
         @endunless
