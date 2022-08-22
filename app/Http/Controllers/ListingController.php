@@ -31,6 +31,10 @@ class ListingController extends Controller
 
     public function store(Request $request)
     {
+        if($listing->id != auth()->id()){
+            abort('403', 'Unauthorize action');
+        }
+
        $formFields = $request->validate([
         'company' => ['required', Rule::unique('listings', 'company')],
         'title' => 'required',
@@ -60,6 +64,10 @@ class ListingController extends Controller
 
     public function update(Request $request, Listing $listing)
     {
+        if($listing->id != auth()->id()){
+            abort('403', 'Unauthorize action');
+        }
+
         $formFields = $request->validate([
             'company' => ['required'],
             'title' => 'required',
@@ -90,7 +98,10 @@ class ListingController extends Controller
 
     public function delete(Listing $listing)
     {       
-
+        if($listing->id != auth()->id()){
+            abort('403', 'Unauthorize action');
+        }
+        
         $listing->delete();
 
         if($listing->logo != null){
