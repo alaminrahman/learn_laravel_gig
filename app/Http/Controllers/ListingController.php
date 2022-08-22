@@ -85,6 +85,22 @@ class ListingController extends Controller
             return back()->with(['message' => 'Successfully update!']);
       
     }
+
+    public function delete(Listing $listing)
+    {       
+
+        $listing->delete();
+
+        if($listing->logo != null){
+            $logo_array = explode('logos/', $listing->logo);
+
+            if(! file_exists($logo_array[1])){
+                unlink(public_path('storage/logos/' . $logo_array[1]));
+            }
+        }
+
+        return redirect('/')->with(['message' => 'Successfully delete!']);
+    }
     
     //End
 }
