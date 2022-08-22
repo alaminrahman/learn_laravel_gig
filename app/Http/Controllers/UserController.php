@@ -62,7 +62,7 @@ class UserController extends Controller
 
             return redirect('/')->with(['message' => 'Logged In!']);
         }else{
-            return redirect('/login')->with(['message' => 'Credential mismatch!']);
+            return redirect('/login')->withErrors(['email' => 'Invalid Credential!'])->onlyInput('email');
         }
     }
     //End
