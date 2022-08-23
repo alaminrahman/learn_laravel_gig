@@ -12,6 +12,7 @@
             <tbody>
                 @forelse($listings as $key => $listing)
                     <tr class="border-gray-300">
+                        <td>{{ $key+1 }}</td>
                         <td
                             class="px-4 py-8 border-t border-b border-gray-300 text-lg"
                         >
@@ -23,7 +24,7 @@
                             class="px-4 py-8 border-t border-b border-gray-300 text-lg"
                         >
                             <a
-                                href="edit.html"
+                                href="{{ url('/listings/'.$listing->id.'/edit')}}"
                                 class="text-blue-400 px-6 py-2 rounded-xl"
                                 ><i
                                     class="fa-solid fa-pen-to-square"
@@ -34,8 +35,11 @@
                         <td
                             class="px-4 py-8 border-t border-b border-gray-300 text-lg"
                         >
-                            <form action="">
-                                <button class="text-red-600">
+                            <form action="{{ url('/listings/'.$listing->id.'/delete')}}" method="post">
+                                @csrf 
+                                @method('DELETE')
+
+                                <button type="submit" class="text-red-600">
                                     <i
                                         class="fa-solid fa-trash-can"
                                     ></i>
@@ -53,5 +57,7 @@
                 
             </tbody>
         </table>
+
+        <div class="mt-2">{{ $listings->links() }}</div>
     </x-card>
 </x-layout>
