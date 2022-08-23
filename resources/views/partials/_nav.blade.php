@@ -9,6 +9,14 @@
             <li>
                 <span class="font-bold uppercase">Welcome {{ auth()->user()->name }}</span>
             </li>
+
+            <li>
+                <a href="{{ url('/listings/create') }}" class="hover:text-laravel"
+                    ><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    Post a Job</a
+                >
+            </li>      
+
             <li>
                 <a href="{{ url('/listings/manage') }}" class="hover:text-laravel"
                     ><i class="fa-solid fa-arrow-right-to-bracket"></i>

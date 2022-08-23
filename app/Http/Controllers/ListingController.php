@@ -10,8 +10,6 @@ class ListingController extends Controller
 {
     public function index(Request $request)
     {
-        // dd(request('tag'));
-
         return view('listings.index', [
             'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6),
         ]);
@@ -31,7 +29,7 @@ class ListingController extends Controller
 
     public function store(Request $request)
     {
-        if($listing->id != auth()->id()){
+        if($listing->user_id != auth()->id()){
             abort('403', 'Unauthorize action');
         }
 
@@ -64,7 +62,7 @@ class ListingController extends Controller
 
     public function update(Request $request, Listing $listing)
     {
-        if($listing->id != auth()->id()){
+        if($listing->user_id != auth()->id()){
             abort('403', 'Unauthorize action');
         }
 
@@ -92,13 +90,13 @@ class ListingController extends Controller
 
            $listing->update($formFields);
 
-            return back()->with(['message' => 'Successfully update!']);
+            return redirect('/')->with(['message' => 'Successfully update!']);
       
     }
 
     public function delete(Listing $listing)
     {       
-        if($listing->id != auth()->id()){
+        if($listing->user_id != auth()->id()){
             abort('403', 'Unauthorize action');
         }
         

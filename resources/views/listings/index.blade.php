@@ -1,5 +1,8 @@
 <x-layout>
 
+    <!-- Hero -->
+    @include('partials._hero')
+
     <!-- Search -->
     @include('partials._search')
 

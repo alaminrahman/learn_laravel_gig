@@ -31,9 +31,6 @@
 <body class="mb-48">
     @include('partials._nav')
 
-    <!-- Hero -->
-    @include('partials._hero')
-
     <main>        
         {{ $slot }}
     </main>
