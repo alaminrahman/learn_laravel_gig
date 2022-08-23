@@ -34,10 +34,7 @@
     <!-- Hero -->
     @include('partials._hero')
 
-    <main>
-        <!-- Search -->
-        @include('partials._search')
-        
+    <main>        
         {{ $slot }}
     </main>
     
